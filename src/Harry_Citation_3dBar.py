@@ -29,7 +29,7 @@ for i in range(0, num_elements):
 
 
 zpos = z = [0] * num_elements
-dx = [0.5] * num_elements
+dx = [0.35] * num_elements
 #dx = np.ones(num_elements)
 dy = [0.9] * num_elements
 #dy = np.ones(num_elements)
