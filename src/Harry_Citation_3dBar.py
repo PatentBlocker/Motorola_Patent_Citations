@@ -56,3 +56,12 @@ ax1.bar3d(xpos, ypos2, zpos, dx, dy, dz, color = '#C4D4FF')
 ax1.bar3d(xpos, ypos3, zpos, dx, dy, dz, color = '#C4D4FF')
 
 plt.show()
+
+#%% Other Plots
+
+#Plotting all forward citations per year
+by_year = citation_dist.groupby('pub_year').aggregate(np.sum)
+plt.bar(by_year.index.get_values(),by_year['count'])
+plt.ylabel('Number of forward citations')
+plt.title('Number of forward citations per year for Motorola')
+plt.show()
