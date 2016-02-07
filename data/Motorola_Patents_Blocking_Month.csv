@@ -1,4 +1,4 @@
-app_number,patent_number,blocked_app,blocking_type,patent_pub_date,blocking_month
+app_number,patent_number,blocked_app,blocking_type,patent_pub_year,blocking_month
 "09/847,143",7046910,10578151,102e,2006,8
 "09/847,143",7046910,10578151,103a,2006,8
 "09/855,385",7190956,12866025,103a,2007,48
