@@ -10,7 +10,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import pandas as pd
 # Data generation
-citation_dist = pd.read_csv("~/Projects/Motorola_Patent_Citations/data/Citation_distribution_all_Harry.csv")
+citation_dist = pd.read_csv("../data/Citation_distribution_all_Harry.csv")
 
 fig = plt.figure()
 ax1 = fig.add_subplot(111, projection='3d')
