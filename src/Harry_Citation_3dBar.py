@@ -19,13 +19,20 @@ num_elements = len(xpos)
 
 ypos = citation_dist['CitMonth'].tolist()
 ypos1 = [0] * num_elements
+ypos2 = [0] * num_elements
+ypos3 = [0] * num_elements
+
 #for i in range(0,num_elements):
 #    yposelement = ypos[i].split('-')
 #    ypos1[i] = float(yposelement[0]+'.'+yposelement[1])
 for i in range(0, num_elements):
     monthStrings = ypos[i].split('-')
     monthCount = 12*(int(monthStrings[0]) - 2011) + int(monthStrings[1])
+    quarterCount = 4*(int(monthStrings[0]) - 2011) + int(monthStrings[1])//4
+    yearCount=int(monthStrings[0]) - 2011
     ypos1[i] = monthCount
+    ypos2[i] = quarterCount
+    ypos3[i] = yearCount
 
 
 zpos = z = [0] * num_elements
@@ -38,5 +45,14 @@ dz = citation_dist['count'].tolist()
 ax1.set_xlabel('Year of Publication')
 ax1.set_ylabel('Month of Citation from 2011 to 2014')
 #ax1.bar3d(xpos, ypos1, zpos, dx, dy, dz, color='#00ceaa')
+
+#For months
 ax1.bar3d(xpos, ypos1, zpos, dx, dy, dz, color = '#C4D4FF')
+
+#For quarters
+ax1.bar3d(xpos, ypos2, zpos, dx, dy, dz, color = '#C4D4FF')
+
+#For years
+ax1.bar3d(xpos, ypos3, zpos, dx, dy, dz, color = '#C4D4FF')
+
 plt.show()
