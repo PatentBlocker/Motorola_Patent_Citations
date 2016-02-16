@@ -13,16 +13,16 @@ del Blocking['Unnamed: 0']
 Blocking['Blocking_patent_str'] = ""
 
 for i in range(0, len(Blocking)):
-	Blocking['Blocking_patent_str'][i] = str(Blocking['Blocking_patent'][i])
+    Blocking['Blocking_patent_str'][i] = str(Blocking['Blocking_patent'][i])
 
 MotoPatents['Blocking_appnumber'] = 0
 
 for i in range(0, len(MotoPatents)):
-	MotoPatents['Blocking_appnumber'][i] = len(set(Blocking['Blocked_app'][Blocking['Blocking_patent_str']==MotoPatents['PatentID'][i]]))
+    MotoPatents['Blocking_appnumber'][i] = len(set(Blocking['Blocked_app'][
+                                               Blocking['Blocking_patent_str'] == MotoPatents['PatentID'][i]]))
 
 
 X = MotoPatents['Blocking_appnumber']
 Y = MotoPatents['Citations']
-plt.plot(X,Y)
+plt.plot(X, Y)
 plt.show()
-

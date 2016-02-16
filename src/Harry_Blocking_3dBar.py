@@ -19,12 +19,12 @@ num_elements = len(xpos)
 
 ypos = blocking_dist['blocking_month'].tolist()
 ypos1 = [0] * num_elements
-#for i in range(0,num_elements):
+# for i in range(0,num_elements):
 #    yposelement = ypos[i].split('-')
 #    ypos1[i] = float(yposelement[0]+'.'+yposelement[1])
 for i in range(0, num_elements):
     monthStrings = ypos[i].split('-')
-    monthCount = 12*(int(monthStrings[0]) - 2011) + int(monthStrings[1])
+    monthCount = 12 * (int(monthStrings[0]) - 2011) + int(monthStrings[1])
     ypos1[i] = monthCount
 
 
@@ -37,6 +37,6 @@ dz = blocking_dist['count'].tolist()
 
 ax1.set_xlabel('Year of Publication')
 ax1.set_ylabel('Month of Blocking from 2011 to 2014')
-#ax1.bar3d(xpos, ypos1, zpos, dx, dy, dz, color='#00ceaa')
-ax1.bar3d(xpos, ypos1, zpos, dx, dy, dz, color = '#C4D4FF')
+# ax1.bar3d(xpos, ypos1, zpos, dx, dy, dz, color='#00ceaa')
+ax1.bar3d(xpos, ypos1, zpos, dx, dy, dz, color='#C4D4FF')
 plt.show()

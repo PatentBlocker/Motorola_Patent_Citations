@@ -12,12 +12,15 @@ Citing = pd.read_csv("../Citing_Count_Str.csv", dtype=str)
 
 # getBlockingNumber: given a patent id, get the number of patents that are
 # blocked by it.
-def getBlockingNumber (PatentID):
-    blockingDF = Blocking['Blockings'][Blocking['PatentID']== PatentID]
+
+
+def getBlockingNumber(PatentID):
+    blockingDF = Blocking['Blockings'][Blocking['PatentID'] == PatentID]
     if len(blockingDF) < 1:
         blockingNumber = 0
     else:
-        blockingNumber = int(Blocking['Blockings'][Blocking['PatentID']== PatentID])
+        blockingNumber = int(Blocking['Blockings'][
+                             Blocking['PatentID'] == PatentID])
     return blockingNumber
 
 MotoPatents['Blockings'] = ""
@@ -26,12 +29,15 @@ for i in range(0, len(MotoPatents['PatentID'])):
     MotoPatents['Blockings'][i] = getBlockingNumber(MotoPatents['PatentID'][i])
 
 # getCitationNumber: given a patent id, get the number of patents that cite it
-def getCitationNumber (PatentID):
-    citationDF = Citing['Citations'][Citing['PatentID']== PatentID]
+
+
+def getCitationNumber(PatentID):
+    citationDF = Citing['Citations'][Citing['PatentID'] == PatentID]
     if len(citationDF) < 1:
         citationNumber = 0
     else:
-        citationNumber = int(Citing['Citations'][Citing['PatentID']== PatentID])
+        citationNumber = int(Citing['Citations'][
+                             Citing['PatentID'] == PatentID])
     return citationNumber
 
 MotoPatents['Citations'] = ""
@@ -47,6 +53,7 @@ for i in range(0, len(MotoPatents['PatentID'])):
     if MotoPatents['Citations'][i] < 1:
         MotoPatents['Ratio'][i] = 0
     else:
-        MotoPatents['Ratio'][i] = float(MotoPatents['Blockings'][i]) / float(MotoPatents['Citations'][i])
+        MotoPatents['Ratio'][i] = float(MotoPatents['Blockings'][
+                                        i]) / float(MotoPatents['Citations'][i])
 
 MotoPatents.to_csv("Motorola_Patents_Blocking_Citations.csv", index=False)

@@ -22,14 +22,15 @@ ypos1 = [0] * num_elements
 ypos2 = [0] * num_elements
 ypos3 = [0] * num_elements
 
-#for i in range(0,num_elements):
+# for i in range(0,num_elements):
 #    yposelement = ypos[i].split('-')
 #    ypos1[i] = float(yposelement[0]+'.'+yposelement[1])
 for i in range(0, num_elements):
     monthStrings = ypos[i].split('-')
-    monthCount = 12*(int(monthStrings[0]) - 2011) + int(monthStrings[1])
-    quarterCount = 4*(int(monthStrings[0]) - 2011) + int(monthStrings[1])//4
-    yearCount=int(monthStrings[0]) - 2011
+    monthCount = 12 * (int(monthStrings[0]) - 2011) + int(monthStrings[1])
+    quarterCount = 4 * \
+        (int(monthStrings[0]) - 2011) + int(monthStrings[1]) // 4
+    yearCount = int(monthStrings[0]) - 2011
     ypos1[i] = monthCount
     ypos2[i] = quarterCount
     ypos3[i] = yearCount
@@ -44,24 +45,24 @@ dz = citation_dist['count'].tolist()
 
 ax1.set_xlabel('Year of Publication')
 ax1.set_ylabel('Month of Citation from 2011 to 2014')
-#ax1.bar3d(xpos, ypos1, zpos, dx, dy, dz, color='#00ceaa')
+# ax1.bar3d(xpos, ypos1, zpos, dx, dy, dz, color='#00ceaa')
 
-#For months
-ax1.bar3d(xpos, ypos1, zpos, dx, dy, dz, color = '#C4D4FF')
+# For months
+ax1.bar3d(xpos, ypos1, zpos, dx, dy, dz, color='#C4D4FF')
 
-#For quarters
-ax1.bar3d(xpos, ypos2, zpos, dx, dy, dz, color = '#C4D4FF')
+# For quarters
+ax1.bar3d(xpos, ypos2, zpos, dx, dy, dz, color='#C4D4FF')
 
-#For years
-ax1.bar3d(xpos, ypos3, zpos, dx, dy, dz, color = '#C4D4FF')
+# For years
+ax1.bar3d(xpos, ypos3, zpos, dx, dy, dz, color='#C4D4FF')
 
 plt.show()
 
 #%% Other Plots
 
-#Plotting all forward citations per year
+# Plotting all forward citations per year
 by_year = citation_dist.groupby('pub_year').aggregate(np.sum)
-plt.bar(by_year.index.get_values(),by_year['count'])
+plt.bar(by_year.index.get_values(), by_year['count'])
 plt.ylabel('Number of forward citations')
 plt.title('Number of forward citations per year for Motorola')
 plt.show()
